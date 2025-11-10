@@ -1,0 +1,5 @@
+apiVersion: v2
+name: muffin-currency
+description: chart for muffin-currency service
+version: 1.0.0
+appVersion: "1.0.0"
