@@ -1,0 +1,23 @@
+replicaCount: 3
+
+image:
+  repository: aadan1lov/muffin-wallet
+  tag: "1.1.0"
+  pullPolicy: Always
+
+service:
+  port: 80
+  targetPort: 8081
+  type: ClusterIP
+
+config:
+  datasourceUrl: jdbc:postgresql://host.minikube.internal:5432/muffin_wallet
+  datasourceUser: muffin-wallet
+  currencyUrl: http://muffin-currency:8083/rate
+
+secret:
+  SPRING_DATASOURCE_PASSWORD: "muffin-wallet"
+
+ingress:
+  enabled: true
+  host: muffin-wallet.com

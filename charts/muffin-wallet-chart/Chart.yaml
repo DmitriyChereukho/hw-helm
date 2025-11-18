@@ -1,0 +1,5 @@
+apiVersion: v2
+name: muffin-wallet
+version: 0.1.0
+description: Helm chart for the muffin-wallet service
+type: application
