@@ -1,0 +1,18 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: wallet-to-currency
+  namespace: muffin
+spec:
+  hosts:
+    - muffin-currency
+  http:
+    - retries:
+        attempts: 3
+        perTryTimeout: 2s
+      timeout: 5s
+      route:
+        - destination:
+            host: muffin-currency
+            port:
+              number: 8083
