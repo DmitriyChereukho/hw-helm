@@ -9,7 +9,10 @@ spec:
   gateways:
     - muffin-gateway
   http:
-    - route:
+    - match:
+        - uri:
+            prefix: /
+      route:
         - destination:
             host: muffin-wallet
             port:

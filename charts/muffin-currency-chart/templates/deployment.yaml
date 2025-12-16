@@ -4,6 +4,7 @@ metadata:
   name: {{ include "muffin-currency.fullname" . }}
   labels:
     app: {{ include "muffin-currency.name" . }}
+    version: v1
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:

@@ -19,5 +19,5 @@ secret:
   SPRING_DATASOURCE_PASSWORD: "muffin-wallet"
 
 ingress:
-  enabled: true
+  enabled: false
   host: muffin-wallet.com
