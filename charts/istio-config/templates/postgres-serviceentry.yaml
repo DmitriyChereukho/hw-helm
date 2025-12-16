@@ -2,12 +2,12 @@ apiVersion: networking.istio.io/v1beta1
 kind: ServiceEntry
 metadata:
   name: postgres
-  namespace: muffin
+  namespace: {{ .Release.Namespace }}
 spec:
   hosts:
-    - host.minikube.internal
+    - {{ .Values.externalServices.postgres.host }}
   ports:
-    - number: 5432
+    - number: {{ .Values.externalServices.postgres.port }}
       name: postgres
       protocol: TCP
   location: MESH_EXTERNAL

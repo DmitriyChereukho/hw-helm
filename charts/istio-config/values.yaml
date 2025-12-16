@@ -1,0 +1,30 @@
+wallet:
+  servicePort: 80
+
+currency:
+  host: muffin-currency
+  port: 8083
+  appLabel: muffin-currency
+
+ingress:
+  host: wallet.example.com
+  gateway: muffin-gateway
+
+security:
+  walletPrincipal: cluster.local/ns/muffin/sa/default
+
+resilience:
+  retries: 3
+  perTryTimeout: 2s
+  timeout: 5s
+
+  maxPendingRequests: 5
+  maxRequestsPerConnection: 5
+  consecutive5xxErrors: 3
+  interval: 5s
+  baseEjectionTime: 30s
+
+externalServices:
+  postgres:
+    host: host.minikube.internal
+    port: 5432

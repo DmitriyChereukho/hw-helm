@@ -1,8 +1,8 @@
 apiVersion: networking.istio.io/v1beta1
 kind: Gateway
 metadata:
-  name: muffin-gateway
-  namespace: muffin
+  name: {{ .Values.ingress.gateway }}
+  namespace: {{ .Release.Namespace }}
 spec:
   selector:
     istio: ingressgateway
@@ -12,4 +12,4 @@ spec:
         name: http
         protocol: HTTP
       hosts:
-        - wallet.example.com
+        - {{ .Values.ingress.host }}
