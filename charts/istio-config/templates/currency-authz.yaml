@@ -11,4 +11,4 @@ spec:
     - from:
         - source:
             principals:
-              - {{ .Values.security.walletPrincipal }}
+              - cluster.local/ns/muffin/sa/muffin-wallet

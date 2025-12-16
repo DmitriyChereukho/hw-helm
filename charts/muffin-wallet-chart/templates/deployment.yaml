@@ -14,6 +14,7 @@ spec:
       labels:
         app: muffin-wallet
     spec:
+      serviceAccountName: muffin-wallet
       volumes:
         - name: application-config-volume
           configMap:
