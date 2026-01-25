@@ -1,5 +1,6 @@
 wallet:
   servicePort: 80
+  host: wallet.example.com
 
 currency:
   host: muffin-currency
@@ -7,8 +8,11 @@ currency:
   appLabel: muffin-currency
 
 ingress:
-  host: wallet.example.com
   gateway: muffin-gateway
+
+  hosts:
+    - wallet.example.com
+    - prometheus.example.com
 
 security:
   walletPrincipal: cluster.local/ns/muffin/sa/default
@@ -28,3 +32,11 @@ externalServices:
   postgres:
     host: host.minikube.internal
     port: 5432
+
+prometheus:
+  enabled: true
+  host: prometheus.example.com
+
+  namespace: monitoring
+  serviceName: monitoring-kube-prometheus-prometheus
+  servicePort: 9090

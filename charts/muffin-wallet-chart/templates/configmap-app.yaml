@@ -17,10 +17,14 @@ data:
         url: {{ .Values.config.currencyUrl }}
 
     management:
+      metrics:
+        distribution:
+          percentiles-histogram:
+            http.server.requests: true
       endpoints:
         web:
           exposure:
-            include: health, info
+            include: health, info, prometheus
       endpoint:
         health:
           probes:

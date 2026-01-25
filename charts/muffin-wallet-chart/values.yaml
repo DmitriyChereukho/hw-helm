@@ -21,3 +21,22 @@ secret:
 ingress:
   enabled: false
   host: muffin-wallet.com
+
+serviceMonitor:
+  enabled: true
+
+  namespace: monitoring
+
+  labels:
+    release: monitoring
+
+  selector:
+    app: muffin-wallet
+
+  targetNamespaces:
+    - muffin
+
+  endpoint:
+    port: http
+    path: /actuator/prometheus
+    interval: 15s

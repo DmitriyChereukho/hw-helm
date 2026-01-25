@@ -1,0 +1,11 @@
+apiVersion: security.istio.io/v1beta1
+kind: PeerAuthentication
+metadata:
+  name: muffin-wallet-metrics
+  namespace: muffin
+spec:
+  selector:
+    matchLabels:
+      app: muffin-wallet
+  mtls:
+    mode: PERMISSIVE

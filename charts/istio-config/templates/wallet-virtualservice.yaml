@@ -5,11 +5,14 @@ metadata:
   namespace: {{ .Release.Namespace }}
 spec:
   hosts:
-    - {{ .Values.ingress.host }}
+    - {{ .Values.wallet.host }}
   gateways:
     - {{ .Values.ingress.gateway }}
   http:
-    - route:
+    - match:
+        - uri:
+            prefix: /
+      route:
         - destination:
             host: muffin-wallet
             port:
