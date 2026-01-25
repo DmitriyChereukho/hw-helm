@@ -16,6 +16,20 @@
 
 minikube start
 
+## Запуск БД
+
+services:
+  postgres:
+    image: postgres
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=muffin-wallet
+      - POSTGRES_PASSWORD=muffin-wallet
+      - POSTGRES_DB=muffin_wallet
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
 ## Развёртывание приложения (должны быть установлены helm, helmfile, istio)
 
 helmfile sync
