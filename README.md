@@ -8,14 +8,4 @@
 
 Создан ServiceMonitor, который находит сервис muffin-wallet и регулярно собирает метрики с /actuator/prometheus.
 
-Настроен доступ к приложению через Ingress / Istio Gateway по адресу http://wallet.example.com.
-
-## Prometheus получает:
-
-HTTP-метрики (RPS, latency, ошибки)
-
-метрики JDBC / HikariCP
-
-JVM и системные метрики
-
-Подготовлены PromQL-запросы для всех пунктов задания.
+Настроен доступ к приложению через Istio Gateway по адресу http://prometheus.example.com/.
