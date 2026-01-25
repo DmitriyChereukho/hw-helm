@@ -1,41 +1,13 @@
-ДЗ Prometheus — мониторинг muffin-wallet
-1. Описание
+# Описание
 
 В рамках задания было развернуто приложение muffin-wallet в кластере Kubernetes (minikube) и настроен мониторинг производительности с использованием Prometheus.
 Обеспечен сбор метрик приложения и инфраструктуры, а также подготовлены PromQL-запросы для анализа работы сервиса.
 
-2. Архитектура решения
-
-Используемые компоненты:
-
-Kubernetes (minikube)
-
-Helm / Helmfile
-
-Spring Boot + Actuator + Micrometer
-
-Prometheus Operator (kube-prometheus-stack)
-
-Istio (Ingress Gateway, mTLS — опционально)
-
-Схема:
-
-Browser
-  ↓
-Istio Ingress Gateway
-  ↓
-muffin-wallet (Spring Boot)
-  ↓
-PostgreSQL
-
-Prometheus
-  └─ ServiceMonitor → /actuator/prometheus
-
-3. Запуск кластера и приложения
-3.1 Запуск minikube
+# Запуск кластера и приложения
+## Запуск minikube
 minikube start
 
-3.2 Установка Helm
+## Установка Helm
 helm version
 
 3.3 Развёртывание приложения
