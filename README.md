@@ -24,3 +24,32 @@ helmfile sync
 
 minikube tunnel
 
+# Проверка метрик
+
+## Нагрузка
+
+Нагрузку можно создать на http://wallet.example.com/
+
+## Запросы в секунду (RPS):
+
+sum by (method, uri) (
+  rate(http_server_requests_seconds_count[1m])
+)
+
+
+## Количество ошибок:
+
+increase(logback_events_total{level="error"}[5m])
+
+## 99-й персентиль времени ответа:
+
+histogram_quantile(
+  0.99,
+  sum by (le)(
+    rate(http_server_requests_seconds_bucket[5m])
+  )
+)
+
+## Количество соединений с БД:
+
+hikaricp_connections_active
