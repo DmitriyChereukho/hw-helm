@@ -53,3 +53,7 @@ histogram_quantile(
 ## Количество соединений с БД:
 
 hikaricp_connections_active
+
+## Размер пула соединений с БД
+
+hikaricp_connections_max
