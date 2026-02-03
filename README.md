@@ -20,7 +20,7 @@ minikube start
 
 Через docker-compose в local-env
 
-## Развёртывание приложения (должны быть установлены helm, helmfile, istio)
+## Развёртывание приложения (должны быть установлены helm, helmfile, istio, Prometheus Operator)
 
 helmfile sync
 
